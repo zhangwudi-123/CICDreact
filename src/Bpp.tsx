@@ -12,7 +12,11 @@ const edges = [
   { from: '2', to: '3' },
   // 更多边...
 ];
-
+const bb = () => {
+  return (
+   <div>222</div>
+)
+}
 const Graph = () => {
   const [selectedNodeId, setSelectedNodeId] = useState(null);
 

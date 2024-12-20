@@ -13,6 +13,7 @@ import type {
 interface NodeSlotProps extends RGNodeSlotProps {
   selectedNodeId: string | null;
 }
+const a ='8888888'
 const staticJsonData = {
   rootId: '2',
   nodes: [
