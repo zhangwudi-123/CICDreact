@@ -1,32 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const nodes = [
-  { id: '1', text: '节点-1', x: 100, y: 100 },
-  { id: '2', text: '节点-2', x: 200, y: 200 },
-  { id: '3', text: '节点-3', x: 300, y: 100 },
+  { id: "1", text: "节点-1", x: 100, y: 100 },
+  { id: "2", text: "节点-2", x: 200, y: 200 },
+  { id: "3", text: "节点-3", x: 300, y: 100 },
   // 更多节点...
 ];
 
 const edges = [
-  { from: '1', to: '2' },
-  { from: '2', to: '3' },
+  { from: "1", to: "2" },
+  { from: "2", to: "3" },
   // 更多边...
 ];
 const edges2 = [
-  { from: '1', to: '2' },
-  { from: '2', to: '3' },
+  { from: "1", to: "2" },
+  { from: "2", to: "3" },
   // 更多边...
 ];
 const edge3 = [
-  { from: '1', to: '2' },
-  { from: '2', to: '3' },
+  { from: "1", to: "2" },
+  { from: "2", to: "3" },
   // 更多边...
 ];
+const bb2 = () => {
+  return <div>222</div>;
+};
+const bb3 = () => {
+  return <div>222</div>;
+};
+const bb4 = () => {
+  return <div>222</div>;
+};
 const bb = () => {
-  return (
-   <div>222</div>
-)
-}
+  return <div>222</div>;
+};
 const Graph = () => {
   const [selectedNodeId, setSelectedNodeId] = useState(null);
 
@@ -37,9 +44,9 @@ const Graph = () => {
   const getNodeStyle = (node) => {
     const isSelected = node.id === selectedNodeId;
     return {
-      transform: isSelected ? 'scale(1.5)' : 'scale(1)',
-      transition: 'transform 0.2s',
-      cursor: 'pointer',
+      transform: isSelected ? "scale(1.5)" : "scale(1)",
+      transition: "transform 0.2s",
+      cursor: "pointer",
     };
   };
 
@@ -72,10 +79,10 @@ const Graph = () => {
         >
           <circle
             r={20}
-            fill={node.id === selectedNodeId ? 'orange' : 'lightblue'}
+            fill={node.id === selectedNodeId ? "orange" : "lightblue"}
             style={getNodeStyle(node)}
           />
-          <text textAnchor="middle" y="5" style={{ fontSize: '12px' }}>
+          <text textAnchor="middle" y="5" style={{ fontSize: "12px" }}>
             {node.text}
           </text>
         </g>
