@@ -13,7 +13,10 @@ import type {
 interface NodeSlotProps extends RGNodeSlotProps {
   selectedNodeId: string | null;
 }
-const a ='8888888'
+const a = '8888888'
+const c = '8888888'
+const d = '8888888'
+const e = '8888888'
 const staticJsonData = {
   rootId: '2',
   nodes: [
@@ -71,17 +74,17 @@ const NodeSlot: React.FC<NodeSlotProps> = ({ node, selectedNodeId }) => {
   // 样式，包括放大效果和过渡
   const scaleStyle = isSelected
     ? {
-        transform: 'scale(1.5)', // 放大1.5倍
-        transition: 'transform 0.2s',
-      }
+      transform: 'scale(1.5)', // 放大1.5倍
+      transition: 'transform 0.2s',
+    }
     : {};
 
   // 计算中心化位置的样式
   const centerStyle = isSelected
     ? {
-        transition: 'transform 0.2s',
-        transform: 'translate(-50%, -50%)', // 使节点中心对齐
-      }
+      transition: 'transform 0.2s',
+      transform: 'translate(-50%, -50%)', // 使节点中心对齐
+    }
     : {};
   console.log('NodeSlot:');
   if (node.id === '2') {
@@ -142,7 +145,7 @@ const VipMyGraph: React.FC = () => {
 
   const showGraph = async () => {
     // eslint-disable-next-line @typescript-eslint/no-empty-function
-    await graphRef.current.setJsonData(staticJsonData, (graphInstance) => {});
+    await graphRef.current.setJsonData(staticJsonData, (graphInstance) => { });
   };
   const options: RGOptions = {
     debug: true,
