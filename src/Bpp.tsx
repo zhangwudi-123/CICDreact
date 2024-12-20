@@ -12,6 +12,16 @@ const edges = [
   { from: '2', to: '3' },
   // 更多边...
 ];
+const edges2 = [
+  { from: '1', to: '2' },
+  { from: '2', to: '3' },
+  // 更多边...
+];
+const edge3 = [
+  { from: '1', to: '2' },
+  { from: '2', to: '3' },
+  // 更多边...
+];
 const bb = () => {
   return (
    <div>222</div>
