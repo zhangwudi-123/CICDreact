@@ -1,15 +1,21 @@
-import { applyMiddleware, createStore } from 'redux';
-import thunk from 'redux-thunk';
-const indexstate = {
+import { configureStore } from "@reduxjs/toolkit";
+
+const initialState = {
   comment: 1,
 };
-function reducer(state = indexstate, action) {
+
+function reducer(state = initialState, action) {
   switch (action.type) {
-    case 'ADD':
+    case "ADD":
       return { ...state, comment: state.comment + action.num };
     default:
       return state;
   }
 }
-const store = createStore(reducer, applyMiddleware(thunk));
+
+const store = configureStore({
+  reducer,
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
+});
+
 export default store;
