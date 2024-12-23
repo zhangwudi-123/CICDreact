@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npx --no-install commitlint --edit 
+echo "Running commit-msg hooks..."
+npx --no -- commitlint --edit $1 --verbose

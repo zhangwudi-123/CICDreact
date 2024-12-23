@@ -1,0 +1,49 @@
+name: zcCICD
+
+on:
+  push:
+    branches:
+      - zcdev # 监听 main 分支的 push 操作
+  pull_request:
+    branches:
+      - zcdev # 监听 main 分支的 PR 操作
+
+permissions:
+  contents: write # 设置权限，允许写入文件
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest # 使用最新版本的 Ubuntu 环境
+
+    steps:
+      # 1. 检出代码
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # 2. 设置 Node.js 环境
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20" # 指定 Node.js 版本
+          cache: "npm" # 缓存 npm 依赖
+
+      # 3. 安装依赖
+      - name: Install Dependencies
+        run: npm install
+
+      # 4. 运行构建
+      - name: Build Project
+        run: npm run build
+
+      # 5. 部署到 GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: zcdev # 部署到 gh-pages 分支
+          folder: build # 部署的目录（替换为你的构建输出目录）
+          publish_dir: ./build #部署打包后的 dist 目录
+          github_token: ${{ secrets.CICDREACT }}#secret 名
+          user_name: ${{ secrets.MY_USERNAME }}
+         user_email: ${{ secrets.MY_USER_EMAIL }}
+          commit message: 自动部署 # 部署时的 git 提交信息，自由填写
+          clean: true # 清理旧文件
