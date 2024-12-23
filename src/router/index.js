@@ -1,7 +1,6 @@
-import React from "react";
 import Home from "../pages/Home/index";
 import Coller from "../pages/Coller/index";
-import App from "../App.tsx";
+import App from "../App";
 const route = [
   {
     path: "/",
